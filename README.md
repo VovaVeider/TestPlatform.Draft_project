@@ -14,7 +14,7 @@
   
        127.0.0.1 testplatform.ru
     
-      127.0.0.1 api.testplatform.ru
+       127.0.0.1 api.testplatform.ru
     
     4.Перезагруть комп обязательно.
   
