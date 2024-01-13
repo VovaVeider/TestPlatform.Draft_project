@@ -1,0 +1,33 @@
+# Отключение автоматического индексирования для /tests
+Options -Indexes
+
+RewriteEngine On
+
+# POST-запросы для /users
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteRule ^users$ auth/registration.php [L]
+
+# POST-запросы для /tests
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteRule ^tests$ tests_/test_create.php [L]
+
+# GET-запросы для /users/tokens
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^users/tokens$ auth/sign-in.php [L]
+
+# DELETE-запросы для /tests/\d+
+RewriteCond %{REQUEST_METHOD} ^DELETE$
+RewriteRule ^tests/\d+$ tests_/test_delete.php [L]
+
+# PUT-запросы для /tests/{id}
+RewriteCond %{REQUEST_METHOD} ^PUT$
+RewriteRule ^tests/\d+$ tests_/test_update.php [L]
+
+# GET-запросы для /tests/{id}
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^tests/\d+$ tests_/test_get.php [L]
+
+# POST-запросы для /tests/{id}/result
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteRule ^tests/\d+/result$ tests_/test_result.php [L]
+

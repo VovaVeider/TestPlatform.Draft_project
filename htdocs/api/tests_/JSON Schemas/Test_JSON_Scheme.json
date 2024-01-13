@@ -1,0 +1,101 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Test",
+    "definitions": {
+        "Test": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "questions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Question"
+                    }
+                },
+                "results": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Result"
+                    }
+                }
+            },
+            "required": [
+                "questions",
+                "results"
+            ],
+            "title": "Test"
+        },
+        "Question": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "answers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Answer"
+                    }
+                }
+            },
+            "required": [
+                "answers",
+                "text"
+            ],
+            "title": "Question"
+        },
+        "Answer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "points": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "points",
+                "text"
+            ],
+            "title": "Answer"
+        },
+        "Result": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "min-score": {
+                    "anyOf": [
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "max-score": {
+                    "anyOf": [
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "max-score",
+                "min-score",
+                "text"
+            ],
+            "title": "Result"
+        }
+    }
+}
