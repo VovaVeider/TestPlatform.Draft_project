@@ -25,6 +25,10 @@ $test = json_decode($stmt->fetch()['test'],true);
 $test_answ=$input_json['results'];
 
 if (is_valid_test_answ($test_answ,$test)){
+    $conn = create_conn();
+    $stmt = $conn->prepare('UPDATE tests SET passed = passed + 1 WHERE ID = :id');
+    $stmt->execute(['id' => $test_id]);
+
     $result = get_test_result($test_answ,$test);
     $answer['error'] = null;
     $answer['error_descr'] = null;

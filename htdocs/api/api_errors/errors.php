@@ -18,5 +18,6 @@ $api_errors =[
     'СAT_NOTFND'=>'Category not found',
     'INVALID_TYPE'=>'Ivalid type of key value in JSON',
     'TST_RES_INV'=>'Test result incorrect for selected test',
-    'CAT_EXISTS'=> 'Category with this name already exists'
+    'CAT_EXISTS'=> 'Category with this name already exists',
+    'INVALID_IMAGE'=>'IMAGE MUST BE JPG  with max size 100 * 100'
 ];

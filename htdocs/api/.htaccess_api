@@ -45,3 +45,15 @@ RewriteRule ^categories/\d+$ categories_/category_update.php [L]
 RewriteCond %{REQUEST_METHOD} ^DELETE$
 RewriteRule ^categories/\d+$ categories_/category_delete.php [L]
 
+
+# POST-запросы для /tests/{id}/preview
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteRule ^tests/\d+/preview$ tests_/preview_set.php [L]
+# GET-запросы для /tests/{id}/preview
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^tests/\d+/preview$ tests_/preview_get.php [L]
+# DELETE-запросы для /tests/{id}/preview
+RewriteCond %{REQUEST_METHOD} ^DELETE$
+RewriteRule ^tests/\d+/preview$ tests_/preview_delete.php [L]
+
+
