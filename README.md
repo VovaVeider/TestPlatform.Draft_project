@@ -20,3 +20,4 @@
   
  5) C testplatform.ru связана папка C:\Apache24\htdocs\site, с  api.testplatorm.ru - C:\Apache24\htdocs\api
   
+###
