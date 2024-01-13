@@ -31,3 +31,17 @@ RewriteRule ^tests/\d+$ tests_/test_get.php [L]
 RewriteCond %{REQUEST_METHOD} ^POST$
 RewriteRule ^tests/\d+/result$ tests_/test_result.php [L]
 
+# GET-запросы для /categories
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^categories$ categories_/categories_get.php [L]
+
+# POST-запросы для /categories
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteRule ^categories$ categories_/category_add.php [L]
+# PUT-запросы для /categories/{id}
+RewriteCond %{REQUEST_METHOD} ^PUT$
+RewriteRule ^categories/\d+$ categories_/category_update.php [L]
+# DELETE-запросы для /categories/{id}
+RewriteCond %{REQUEST_METHOD} ^DELETE$
+RewriteRule ^categories/\d+$ categories_/category_delete.php [L]
+

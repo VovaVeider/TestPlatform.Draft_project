@@ -17,7 +17,7 @@ use Firebase\JWT\SignatureInvalidException;
                 $answer['error'] = 'NOT_AUTH';
                 $answer['error_descr'] = $api_errors['NOT_AUTH'];
                 echo json_encode($answer);
-                exit;
+                exit();
             }
         }
         try {
@@ -27,7 +27,7 @@ use Firebase\JWT\SignatureInvalidException;
                 $answer['error'] = 'JWT_SIGN_FAIL';
                 $answer['error_descr'] = $api_errors['JWT_SIGN_FAIL'];
                 echo json_encode($answer);
-                exit;
+                exit();
         }
         //Проверка что пользователь сейчас существует
         $id = $payload->id;
@@ -39,14 +39,14 @@ use Firebase\JWT\SignatureInvalidException;
             $answer['error'] = 'USER_NOT_EXISTS';
             $answer['error_descr'] = $api_errors['USER_NOT_EXISTS'];
             echo json_encode($answer);
-            exit;
+            exit();
         }
         $role = $payload->role;
         if (!in_array($role,$roles)){
             $answer['error'] = 'NOT_RIGHTS';
             $answer['error_descr'] = $api_errors['NOT_RIGHTS'];
             echo json_encode($answer);
-            exit;
+            exit();
         }
 
         return ['id'=>$payload->id,'login'=>$payload->login,'role'=>$payload->role];

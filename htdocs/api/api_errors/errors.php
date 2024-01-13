@@ -16,5 +16,7 @@ $api_errors =[
     'NOT_AUTH'=>'Not authorized.In authorization header not jwt, but guest acsess forbidden',
     'TEST_INV' => 'Invalid test structure',
     'СAT_NOTFND'=>'Category not found',
-    'INVALID_TYPE'=>'Ivalid type of key value in JSON'
+    'INVALID_TYPE'=>'Ivalid type of key value in JSON',
+    'TST_RES_INV'=>'Test result incorrect for selected test',
+    'CAT_EXISTS'=> 'Category with this name already exists'
 ];
