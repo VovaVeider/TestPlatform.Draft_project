@@ -69,3 +69,6 @@ RewriteCond %{REQUEST_METHOD} ^DELETE$
 RewriteRule ^users/me/favorites/\d+$ tests_/favorite_delete.php [L]
 
 
+Header set Access-Control-Allow-Origin "http://localhost:63342"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE"
+Header set Access-Control-Allow-Headers "Content-Type"

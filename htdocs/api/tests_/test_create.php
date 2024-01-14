@@ -1,4 +1,7 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: X-Requested-With");
 require_once '../auth/middleware.php';
 require_once '../db/db.php';
 require_once '../api_errors/errors.php';
