@@ -3,7 +3,7 @@
 require_once '../db/db.php';
 require_once '../api_errors/errors.php';
 header('Content-Type: application/json');
-
+header('Access-Control-Allow-Origin: *');
 $answer = ['error' => null, 'error_descr' => null];
 // Получаем данные из тела запроса
 $input_data = file_get_contents('php://input');
