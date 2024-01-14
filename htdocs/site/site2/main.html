@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваша страница</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-btns {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-btns button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        input, label, button {
+            margin-right: 10px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            position: relative;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+        }
+
+        .card-buttons {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-buttons button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .favorite-btn {
+            background-color: #ffcc00; /* Цвет для кнопки "Добавить в избранное" */
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-btns">
+        <button>Категории</button>
+        <button>Создать тест</button>
+    </div>
+    <button>Вход</button>
+</header>
+
+<main>
+    <div class="search-bar">
+        <input type="text" placeholder="Поиск...">
+        <label for="categories">Выберите категории:</label>
+        <select id="categories">
+            <option value="1">Категория 1</option>
+            <option value="2">Категория 2</option>
+            <!-- Добавьте другие категории, если необходимо -->
+        </select>
+        <label><input type="checkbox"> Только избранное</label>
+        <label><input type="checkbox"> По возрастанию</label>
+        <button>Поиск</button>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <img src="placeholder.jpg" alt="Фото">
+            <h3>Имя пользователя</h3>
+            <p>Описание пользователя</p>
+            <div class="card-buttons">
+                <button>Кнопка 1</button>
+                <button>Кнопка 2</button>
+                <button class="favorite-btn">Добавить в избранное</button>
+            </div>
+        </div>
+
+        <!-- Добавьте другие карточки, если необходимо -->
+    </div>
+
+    <div class="pagination">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <!-- Добавьте другие кнопки для других страниц, если необходимо -->
+    </div>
+</main>
+
+<footer>
+    &copy; 2024 Ваша страница. Все права защищены.
+</footer>
+
+</body>
+</html>
