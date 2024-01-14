@@ -3,6 +3,7 @@ require_once '../auth/middleware.php';
 require_once '../db/db.php';
 require 'utils.php';
 require_once 'middleware.php';
+header('Content-Type: application/json');
 $payload=rights_auth_check(['admin']);
 $cat_id = check_get_catid();
 $input_json = json_decode(file_get_contents('php://input'),true);

@@ -2,6 +2,7 @@
 require_once '../auth/middleware.php';
 require_once 'middleware.php';
 require_once 'test_validation.php';
+header('Content-Type: application/json');
 $payload = rights_auth_check(['admin', 'user']);
 $test_id = check_get_test();
 $input_json = json_decode(file_get_contents('php://input'),true);

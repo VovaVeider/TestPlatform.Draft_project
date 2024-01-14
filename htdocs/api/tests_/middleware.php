@@ -13,6 +13,7 @@ function check_get_test():int{
         $stmt->execute(['id'=>$id]);
         $result = $stmt->fetch();
         if ($result['num'] == 0 ){
+            header('Content-Type: application/json');
             $answer = ['error' => 'TEST_NOT_FOUND', 'error_descr' => $api_errors['TEST_NOT_FOUND']];
             http_response_code(404);
             echo json_encode($answer);

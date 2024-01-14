@@ -1,6 +1,8 @@
 <?php
 require_once '../auth/middleware.php';
 require_once 'middleware.php';
+header('Content-Type: application/json');
+$payload=rights_auth_check(['admin','user']);
 $test_id = check_get_test();
 $full = false;
 if (isset($_GET['full']) && $_GET['full'] === 'true') {

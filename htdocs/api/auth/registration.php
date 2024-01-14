@@ -99,5 +99,5 @@ $answer['id']=$id;
 $answer['role']='user';
 $answer['login']=$login;
 http_response_code(200);
-echo json_encode($answer);
+echo json_encode($answer,JSON_UNESCAPED_UNICODE);
 exit;

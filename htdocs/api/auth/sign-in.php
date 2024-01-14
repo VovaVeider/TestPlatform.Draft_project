@@ -27,6 +27,6 @@ if (!isset($login) || !isset($passwd)){
         $answer['id'] = $id;
         $answer['role'] = $role;
         $answer['login'] = $login;
-        echo json_encode($answer);
+        echo json_encode($answer,JSON_UNESCAPED_UNICODE);
     }
 }

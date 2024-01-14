@@ -2,6 +2,7 @@
 require_once '../auth/middleware.php';
 require_once 'middleware.php';
 require_once '../db/db.php';
+header('Content-Type: application/json');
 $payload = rights_auth_check(['admin']);
 $cat_id = check_get_catid();
 

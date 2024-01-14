@@ -14,6 +14,7 @@ use Firebase\JWT\SignatureInvalidException;
                 $payload =['role'=>'guest'];
                 return $payload;
             } else{
+                header('Content-Type: application/json');
                 $answer['error'] = 'NOT_AUTH';
                 $answer['error_descr'] = $api_errors['NOT_AUTH'];
                 echo json_encode($answer);
@@ -24,6 +25,7 @@ use Firebase\JWT\SignatureInvalidException;
             $payload = JWT::decode($jwt,new Key($secret_code,'HS256'));
         }
         catch (Throwable $e ){
+                header('Content-Type: application/json');
                 $answer['error'] = 'JWT_SIGN_FAIL';
                 $answer['error_descr'] = $api_errors['JWT_SIGN_FAIL'];
                 echo json_encode($answer);
@@ -36,6 +38,7 @@ use Firebase\JWT\SignatureInvalidException;
         $stmt->execute(['ID'=>$id]);
 
         if ($stmt->fetch() === false){
+            header('Content-Type: application/json');
             $answer['error'] = 'USER_NOT_EXISTS';
             $answer['error_descr'] = $api_errors['USER_NOT_EXISTS'];
             echo json_encode($answer);
@@ -43,6 +46,7 @@ use Firebase\JWT\SignatureInvalidException;
         }
         $role = $payload->role;
         if (!in_array($role,$roles)){
+            header('Content-Type: application/json');
             $answer['error'] = 'NOT_RIGHTS';
             $answer['error_descr'] = $api_errors['NOT_RIGHTS'];
             echo json_encode($answer);

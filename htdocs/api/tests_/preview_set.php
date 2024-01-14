@@ -3,6 +3,7 @@ require_once '../auth/middleware.php';
 require_once '../db/db.php';
 require_once '../api_errors/errors.php';
 require_once 'middleware.php';
+header('Content-Type: application/json');
 $payload = rights_auth_check(['admin']);
 $test_id = check_get_test(); //Если тест есть то его получим ид иначе отправим ошибку
 

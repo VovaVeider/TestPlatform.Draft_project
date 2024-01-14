@@ -2,6 +2,7 @@
 require_once '../auth/middleware.php';
 require_once '../db/db.php';
 require_once 'utils.php';
+header('Content-Type: application/json');
 $payload=rights_auth_check(['admin']);
 $input_json = json_decode(file_get_contents('php://input'),true);
 
