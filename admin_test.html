@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создатель Тестов</title>
+    <link rel="stylesheet" href="css/admin_test.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="icon" type="image/png" href="/media/images/logo.png"/>
+</head>
+<body>
+<header>
+    <div class="header-back">
+        <div class="header-content">
+            <nav class="header-nav" id="headerNav">
+                <div class="header-nav-left">
+                    <a href="index.html" class="header-logo"><img src="media/images/logo.png" alt="logotype" class="image-logo">TEST WORLD</a>
+                    <ul class="header-nav-left-buttons" id="headerNavLeftButtons">
+                        <li class="header-nav-left-buttons-item">
+                            <a href="/admin_test.html" class="header-nav-left-buttons-item-link tests">Создать тест</a>
+                        </li>
+
+                        <li class="header-nav-left-buttons-item">
+                            <a href="/category_editor.html" class="header-nav-left-buttons-item-link groups">Редактор категорий</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-nav-right">
+                    <div class="header-nav-right-login-button">
+                        <span id="userName" style="display:none; cursor: pointer; text-decoration: underline;" onclick="redirectToChangePassword()"></span>
+                        <button class="header-nav-rigth-login-button-link" onclick="openLogin()" id="loginButton">Вход</button>
+                        <button id="logoutButton" style="display:none;" onclick="logout()">Выход</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="main-name">
+    <h1>Создатель Тестов</h1>
+    <button id="sendTest" onclick="sendTest()">Отправить</button>
+</div>
+<!-- Добавленные элементы для модального окна -->
+<div id="modal">
+    <div id="modal-content">
+        <span id = 'closeModal' onclick="closeModal()" style="float: right; cursor: pointer;">&times;</span>
+        <p id="modal-msg"></p>
+    </div>
+</div>
+
+<div id="edit-container">
+    <div id="tabs-bar">
+        <button class="tab active-tab" id="info-tab" onclick="switchTab(this)">Общая информация</button>
+        <button class="tab" id="questions-tab" onclick="switchTab(this)">Вопросы</button>
+        <button class="tab" id="results-tab" onclick="switchTab(this)">Результаты тестирования</button>
+    </div>
+
+    <div id="content-container">
+        <div id="info-container" class="active-container">
+            <label>Название теста:</label>
+            <input type="text" id="test-name" placeholder="Введите название теста" maxlength="30">
+
+            <label>Описание теста:</label>
+            <textarea id="test-description" placeholder="Введите описание теста"></textarea>
+
+            <label>Категория теста:</label>
+
+            <select id="test-category">
+                <option value="-1">Без категории</option>
+
+            </select>
+
+            <div class="file-upload-container">
+                <label class="file-upload-label">Превью теста (JPEG, не более 200x200):</label>
+                <input type="file" accept="image/jpeg" id="test-preview" style="display: none"
+                       onchange="previewImage()">
+                <label for="test-preview" class="file-upload-btn">Загрузить изображение</label>
+            </div>
+
+            <div id="preview-container"></div>
+        </div>
+
+        <div id="questions-container" class="noactive-container">
+            <button id="addQuestion" onclick="addQuestion()">Добавить вопрос</button>
+        </div>
+
+        <div id="results-container" class="noactive-container">
+            <button id="addResult" onclick="addResult()">Добавить результат</button>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer-back">
+        <div class="footer-content">
+            <div class="footer-content-left">
+                <div class="footer-content-left-first-line">
+                    <a href="#" class="footer-logo"><img src="media/images/logo.png" alt="logotype" class="footer-image-logo">TEST WORLD</a>
+                    <p class="footer-content-left-desc">
+                        Платформа многопользовательских тестов и групп
+                    </p>
+                </div>
+                <div class="footer-content-left-dev-description">
+                    <p class="dev-description">
+                        Разработка и поддержка Pollot Dev
+                    </p>
+                </div>
+            </div>
+            <div class="footer-content-right">
+                <div class="footer-content-right-phone">
+                    <img src="media/images/phone-support.png" alt="phone-support" class="phone-support-image">
+                    <p class="phone-number-text"><b>+7 (800) 900-90-90</b> Служба поддержки</p>
+                </div>
+                <div class="footer-content-right-security">
+                    <p class="security-text">© Pollot Dev | 2023 | Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/main.js"></script>
+<script src ='js/create_update_test.js'>
+</script>
+<script>
+    function redirectToChangePassword() {
+        window.location.href = '/change_password.html';
+    }
+</script>
+</body>
+</html>

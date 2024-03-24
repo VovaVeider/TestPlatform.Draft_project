@@ -1,0 +1,14 @@
+{
+    "name": "vladimir/api",
+    "autoload": {
+        "psr-4": {
+            "Vladimir\\Api\\": "src/"
+        }
+    },
+    "require": {
+        "firebase/php-jwt": "^6.10",
+        "justinrainbow/json-schema": "^5.2",
+        "ext-gd": "*",
+        "ext-mbstring": "*"
+    }
+}

@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+
+body .main {
+    outline: none;
+}
+
+
+body .main {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+body .main h1, body .main h2 {
+    color: #3498db;
+    text-align: center;
+}
+
+#categories-list,
+#add-category-div {
+    margin: auto;
+    width: 80%;
+    list-style: none;
+    padding: 0;
+}
+
+#categories-list li,
+#add-category {
+    background-color: #82BDDEFF;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid #82BDDEFF;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#categories-list li input,
+#add-category input {
+    resize: vertical;
+    width: 100%;
+    padding: 8px;
+    margin-right: 10px;
+    border: 2px solid #689AB6FF;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+#categories-list li input:focus,
+#add-category input:focus {
+    border: 3px solid #159d1a;
+}
+
+body .main div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+body .main label {
+    margin-bottom: 5px;
+}
+
+body .main button {
+    text-align: center;
+    border: 2px solid;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    transition: all 0.5s ease;
+}
+
+button.delete-btn {
+    border-color: #9F3D3DDD;
+    background-color: #da3a3a;
+}
+
+button.delete-btn:hover {
+    background-color: #ab1c1c;
+}
+
+button.edit-btn,
+button.add-btn {
+    border-color: #5C9652DD;
+    background-color: rgba(111, 162, 95, 0.87);
+}
+
+button.edit-btn:hover,
+button.add-btn:hover {
+    background-color: #326429DD;
+}
+
+button.confirm-btn {
+    border-color: #af9d35;
+    background-color: #beae38;
+}
+
+button.confirm-btn:hover {
+    background-color: #9A8D19DD;
+}
+
+button.cancel-btn {
+    border-color: #645b5b;
+    background-color: rgb(80, 74, 74);
+}
+
+button.cancel-btn:hover {
+    background-color: rgba(88, 94, 86, 0.87);
+}
+
+/* Added media query for better mobile responsiveness */
+@media (max-width: 600px) {
+    #categories-list,
+    #add-category-div {
+        width: 100%;
+    }
+
+    #categories-list li,
+    #add-category {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #categories-list li input,
+    #add-category input {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}

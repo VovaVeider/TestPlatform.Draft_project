@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration</title>
+
+  <!-- <style>
+    .register-container {
+      width: 300px;
+      margin: auto;
+      margin-top: 100px;
+    }
+    .register-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .register-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style> -->
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="stylesheet" href="css/register.css">
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <link rel="icon" type="image/png" href="/media/images/logo.png"/>
+</head>
+<body>
+
+<div class="reg-container">
+  <div class="reg-logotype">
+    <img src="media/images/logo.png" alt="reg_logotype" class="reg_logotype_image">
+  </div>
+
+  <h2>Регистрация</h2>
+
+  <div class="reg_form">
+    <label class="reg_login_input">
+      <input type="text" id="username" placeholder="Логин">
+    </label>
+    <label class="reg_email_input">
+      <input type="email" id="email" placeholder="Почта">
+    </label>
+    <label class="reg_password_input">
+      <input type="password" id="password" placeholder="Пароль">
+    </label>
+    <button onclick="register()" class="reg_button_submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+  </div>
+  <div id="errorBlock" style="color: red;"></div>
+</div>
+
+<script>
+  function register() {
+    var username = document.getElementById("username").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    // Формируем объект с данными для отправки
+    var requestData = {
+      "login": username,
+      "password": password,
+      "email": email
+    };
+
+    // Отправляем POST запрос на ваш API
+    fetch('/api/users', {
+
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestData),
+    })
+            .then(response => response.json())
+            .then(data => {
+              if (data.error) {
+                // Ошибка: выводим сообщение об ошибке
+                //alert('Ошибка регистрации:', data.error);
+                document.getElementById("errorBlock").textContent = 'Ошибка: ' + data.error_descr;
+              } else {
+                alert('Успешная регистрация! ');
+                // Дополнительные действия после успешной регистрации
+                // Например, переход на другую страницу
+                window.location.href = 'auth.html';
+              }
+            });
+  }
+</script>
+
+</body>
+</html>

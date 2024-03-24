@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+h1 {
+    color: #333;
+}
+
+
+
+#tabs-bar {
+    /* background-image: linear-gradient(315deg, #63a4ff,  #83eaf1); */
+    background-color: #82BDDEFF;
+    width: 80%;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: hidden; /* Изменено: скрытие возможных выходов за пределы */
+}
+
+.main-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tab {
+    /* border-top-right-radius: 20px; */
+    /* border-top-left-radius: 20px; */
+    /* border-bottom-right-radius: 8px; */
+    /* border-bottom-left-radius: 8px; */
+    border-radius: 20px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    transition: all 0.5s ease;
+    flex: 1;
+    /* cursor: pointer; */
+    background-color: #5C9652DD;
+    /* border-color: rgba(131, 231, 128, 0.87); */
+    border: 2px solid white;
+    color: white;
+    box-sizing: border-box;
+    overflow: hidden; /* Изменено: скрытие возможных выходов за пределы */
+}
+
+#edit-container {
+    width: 100%; /* Change to 100% */
+    box-sizing: border-box; /* Add box-sizing */
+    margin: auto;
+    padding: 20px;
+}
+
+.tab:not(.active-tab):hover {
+    border-color: rgba(243, 110, 110, 0.87);
+    background-color: rgba(246, 114, 114, 0.87);
+}
+
+.active-tab {
+    border-color: rgba(199, 42, 42, 0.87);
+    background-color: rgba(199, 42, 42, 0.87);
+}
+
+.noactive-container {
+    display: none;
+}
+
+.active-container {
+    background-color: #82BDDEFF;
+    display: block;
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.question-container {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.answer-container{
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    margin: 10px auto; /* Изменено: добавлено значение auto для margin */
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%; /* Изменено: установка ширины блока на 80% */
+
+}
+
+.toggleQuestion {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+textarea {
+    resize: none; /* Отключение возможности изменения размера вручную */
+    overflow-y: hidden; /* Скрытие вертикальной полосы прокрутки */
+    height: auto; /* Автоматическое изменение высоты в зависимости от содержимого */
+    min-height: 50px; /* Минимальная высота textarea (при необходимости) */
+}
+
+
+.answers-container, .results-container {
+
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    resize: vertical;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+#sendTest, #content-container button {
+    text-align: center;
+    border: 2px solid;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    transition: all 0.5s ease;
+}
+
+#addResult,.addAnswer,#addQuestion,#sendTest{
+    border-color: #5C9652DD;
+    background-color: rgba(111, 162, 95, 0.87);
+}
+.addAnswer:hover,.addResult:hover,#addQuestion:hover,#addResult:hover,#sendTest:hover {
+    background-color: #326429DD;
+}
+.removeResult,.removeAnswer,.removeQuestion{
+    border-color: #9F3D3DDD;
+    background-color: #da3a3a;
+}
+.removeQuestion:hover, .removeAnswer:hover, .removeResult:hover {
+    background-color: #ab1c1c;
+}
+.toggleQuestion {
+    background-color: #2ab0fa;
+}
+
+.toggleQuestion:hover {
+    background-color: #2a82b9;
+}
+
+
+input[type="text"],
+input[type="number"],
+textarea {
+    resize: vertical;
+    width: calc(100% - 170px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+select {
+    width: calc(100% - 170px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.file-upload-container {
+    display: flex;
+    align-items: center;
+}
+
+.file-upload-label {
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: bold;
+    color: #555;
+}
+
+.file-upload-btn {
+    background-color: #5C9652DD;
+    color: white;
+    padding: 10px 15px;
+    border: 2px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.file-upload-btn:hover {
+    background-color: #45a049;
+}
+
+#preview-container {
+    margin-bottom: 20px;
+}
+
+.result-container {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    margin: 10px; /* Adjust margin as needed */
+    padding: 10px; /* Adjust padding as needed */
+    width: 100%; /* Set width to 100% */
+    box-sizing: border-box; /* Add box-sizing */
+}
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 700px) {
+    #tabs-bar {
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .tab {
+        flex: none;
+        width: 80%;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top: 5px;
+
+        border-radius: 4px;
+
+    }
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+    #edit-container {
+        box-sizing: border-box;
+        margin:0px;
+        padding: 0px;
+        width: 100%;
+    }
+    .active-container{
+        width: 100%;
+        padding: 10px;
+    }
+
+    .questions-container,.question-container{
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .questions-container{
+        padding:100px;
+    }
+    .results-container,.answers-container{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .answer-container{
+        margin-left:auto;
+        margin-right:auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .file-upload-container {
+        flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    select {
+        width: 100%;
+    }
+
+    .file-upload-btn,
+    button,
+    .removeQuestion,
+    .addAnswer,
+    .removeAnswer,
+    .addResult,
+    .removeResult {
+        width: 80%;
+        margin-bottom: 5px;
+    }
+
+    .result-container {
+
+        margin-left:auto;
+        margin-right:auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+}

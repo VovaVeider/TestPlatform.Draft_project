@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="css/auth.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <link rel="icon" type="image/png" href="/media/images/logo.png"/>
+</head>
+<body>
+<div class="auth-container">
+    <div class="wrapper">
+        <div class="auth_logotype">
+            <img src="media/images/logo.png" alt="auth_logotype" class="auth_logotype_image">
+        </div>
+
+        <div class="auth_welcome">
+            <p class="auth_welcome_text">Войдите в систему, чтобы получить доступ к тестами, а так же быть в курсе всех обновлений и того, что Вас интересует.</p>
+        </div>
+
+        <div class="auth_form">
+            <label class="auth_login_input">
+                <input type="text" id="username" placeholder="Логин">
+            </label>
+            <label class="auth_password_input">
+                <input type="password" id="password" placeholder="Пароль">
+            </label>
+            <button onclick="login()" class="auth_button_submit">ВОЙТИ</button>
+        </div>
+        <div id="errorBlock" style="color: red;"></div>
+        <div class="auth_maybe_reg">
+            <p class="auth_maybe_reg">Не зарегистрированы в системе? <a onclick="register()" href="#" class="auth_maybe_reg_link">Зарегистрироваться сейчас</a></p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function login() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Формируем URL с параметрами
+        var apiUrl = '/api/users/tokens' + '?login=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
+
+        // Отправляем GET запрос на ваш API
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    // Ошибка: выводим сообщение об ошибке
+                    document.getElementById("errorBlock").textContent = 'Ошибка: ' + data.error_descr;
+                } else {
+                    // Сохраняем данные в cookies
+                    Cookies.set('jwt', data.jwt);
+                    Cookies.set('role', data.role);
+                    Cookies.set('id', data.id);
+                    Cookies.set('login', data.login);
+                    window.location.href = 'index.html';
+
+                    // Выполняем дополнительные действия после успешной авторизации, например, переход на другую страницу
+                    // window.location.href = 'dashboard.html';
+                }
+            })
+            .catch((error) => {
+                console.error('Ошибка при выполнении запроса:', error);
+            });
+    }
+
+    function register() {
+        window.location.href = 'register.html';
+    }
+</script>
+
+
+
+
+</body>
+</html>
